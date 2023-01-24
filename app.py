@@ -11,7 +11,7 @@ st.bar_chart(view)
 
 
 
-uploaded_file = st.file_uploader("greengas")
+uploaded_file = st.file_uploader("Choose a csv file", accept_multiple_files=True)
 if uploaded_file is  not None:
     bytes_data = uploaded_file.getvalue()
     st.write(bytes_data)
