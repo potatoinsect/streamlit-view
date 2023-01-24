@@ -11,14 +11,8 @@ st.bar_chart(view)
 
 
 
-uploaded_file = st.file_uploader("Choose a csv file", accept_multiple_files=True)
-if uploaded_file is  not None:
-    bytes_data = uploaded_file.getvalue()
+uploaded_files = st.file_uploader("Choose a CSV file", accept_multiple_files=True)
+for uploaded_file in uploaded_files:
+    bytes_data = uploaded_file.read()
+    st.write("filename:", uploaded_file.name)
     st.write(bytes_data)
-    Stringio = StringIo(uploaded_file.getvalue().decode("utf-8"))
-    st.write(Stringio)
-    string_data = Stringio.read()
-    st.write(string_data)
-    dataframe = pd.read_csv(uploaded_file)
-    st.write(dataframe)
-    
